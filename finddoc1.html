@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AnM4dECfFhDvxTACQlCSshxHlZevjMmUIt87i9Djh3KNeumkKWHAXt_vQ_inaeTE'></script>
+    <script src="pod.js"></script>
+</head>
+<body>
+    <div class="header">
+		<img src="images/finddoc/doc.png" alt="Background Image">
+		<div class="search-container">
+			<form>
+				
+				<div class="dropdown">
+					<button class="dropbtn" id="dropdown-btn">City</button>
+					<div class="dropdown-content">
+						<a href="#">Mumbai</a>
+						<a href="#">Banglore</a>
+						<a href="#">Delhi</a>
+                        <a href="#">Surat</a>
+                        <a href="#">Chennai</a>
+					</div>
+				</div>
+                <input type="text" placeholder="Search doctors, clinics,hospitals,etc." id="search-input">
+				<button type="submit" id="search-input" onclick="initMap()">Search</button>
+			</form>
+		</div>
+	</div>
+  <div id="map"></div>
+</body>
+</html>

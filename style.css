@@ -1,0 +1,117 @@
+/* .loading svg polyline {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  
+  .loading svg polyline#back {
+    fill: none;
+    stroke: #ff4d5033;
+  }
+  
+  .loading svg polyline#front {
+    fill: none;
+    stroke: #ff4d4f;
+    stroke-dasharray: 48, 144;
+    stroke-dashoffset: 192;
+    animation: dash_682 1.4s linear infinite;
+  }
+  
+  @keyframes dash_682 {
+    72.5% {
+      opacity: 0;
+    }
+  
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+   */
+/* {
+  background-color: #F9F9F9;
+} */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	position: relative;
+}
+
+.header img {
+	width: 100%;
+	height: auto;
+}
+
+.search-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* background-color: rgba(168, 168, 168, 0.8); */
+	padding: 20px;
+	border-radius: 5px;
+  
+}
+
+.search-container input[type=text] {
+	padding: 10px;
+	font-size: 16px;
+	border: none;
+	border-radius: 5px 0 0 5px;
+  width:350px;
+}
+
+.search-container button[type=submit] {
+	padding: 10px;
+	background-color: #4f4caf;
+	font-size: 16px;
+	color: white;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  background-color: aliceblue;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropbtn {
+	background-color: #4c57af;
+	color: white;
+	padding: 10px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	border-radius: 0 5px 5px 0;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+	background-color: #210f56;
+}
+
+#map {
+	height: 400px;
+	
+  }

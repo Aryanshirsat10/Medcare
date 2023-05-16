@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form1">
+    <div class="form-container">
+        <p class="title">Sign Up</p>
+        <form class="form" action="signup.php" method="post">
+            <div class="input-group">
+                <label for="name">First Name</label>
+                <input type="text" name="fname" id="fname" placeholder="First Name">
+            </div>
+            <div class="input-group">
+                <label for="name">Last Name</label>
+                <input type="text" name="lname" id="lname" placeholder="Last Name">
+            </div>
+            <div class="input-group">
+                <label for="username">Gender</label>
+                <input type="text" name="gender" id="gender" placeholder="gender">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="name@domain.com">
+            </div>
+            <div class="input-group">
+                <label for="username">Contact</label>
+                <input type="number" name="contact" id="contact" placeholder="phone">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+            <br>
+            <button class="sign" onclick="ValidateName();ValidateEmail();ValidatePassword()">Sign in</button>
+        </form>
+    </div>
+</div>
+</body>
+<script>
+    function ValidateEmail(){
+    var email=document.getElementById("email").value;
+    var mailFormat= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(email.match(mailFormat))
+    {
+    alert("Valid email address!");
+    return true;
+    }
+    else{
+    alert("Invalid Email");
+    return false;
+    }
+    }
+    function ValidatePassword(){
+    var password=document.getElementById("password");
+    if(password="")
+    {
+    alert("Please fill in a password");
+    return false;
+    }
+    if(password.length<8)
+    {
+    alert("password should have more than 8 chars");
+    return false;
+    }
+    }
+    function ValidatePhone(){
+        var phone = document.getElementById("mobile");
+        var phoneNum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; 
+            if(phone.value.match(phoneNum)) {
+                return true;
+            }
+            else {
+                document.getElementById("mobile").className = document.getElementById("mobile").className + " error";
+                return false;
+            }
+    }
+    function ValidateName(){
+        var name = document.getElementById("name");
+        var nameformat = /^[a-zA-Z]+ [a-zA-Z]+$/;
+        if(name.matche(nameformat)){
+            // alert("Valid name!")
+            return true;
+        }
+        else{
+            alert("Invalid name format");
+            return false;
+        }
+    }
+</script>
+</html>

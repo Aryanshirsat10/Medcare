@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="css/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="css/owl.theme.default.min.css" rel="stylesheet"> 
+
+    <link href="css/medcare.css" rel="stylesheet"> 
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script> -->
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AnM4dECfFhDvxTACQlCSshxHlZevjMmUIt87i9Djh3KNeumkKWHAXt_vQ_inaeTE'></script>
+
+    <title>Find Doctors</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg navbar navbar-">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-auto d-lg-none" href="index.html"><img src="medcarelogo.jpg" >
+                <!-- <strong class="d-block">Health Specialist</strong> -->
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav mx-auto">
+                    <li class="nav-item active">
+                        <a datatoggle="collapse" class="nav-link" href="index.html">Home</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a datatoggle="collapse" class="nav-link" href="#about">About</a>
+                    </li>
+    
+                    <li class="nav-item">
+                      <a datatoggle="collapse" class="nav-link" href="doc.html">Find Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a datatoggle="collapse" class="nav-link" href="#services">Services</a>
+                    </li>
+    
+                    <a class="navbar-brand d-none d-lg-block" href="index.html">
+                        <img src="medcarelogo.jpg" height="75em" width="">
+                    </a>
+    
+                    <li class="nav-item">
+                        <a datatoggle="collapse" class="nav-link" href="#reviews">Testimonials</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a datatoggle="collapse" class="nav-link" href="#booking">Booking</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a datatoggle="collapse" class="nav-link" href="#about">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a datatoggle="collapse" class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+    
+        </div>
+    </nav>
+    <div class="header">
+		<img src="images/finddoc/doc.png" alt="Background Image">
+		<div class="search-container">
+			<form>
+				
+				<div class="dropdown">
+					<button class="dropbtn" id="dropdown-btn">City</button>
+					<div class="dropdown-content">
+						<a href="#">Mumbai</a>
+						<a href="#">Banglore</a>
+						<a href="#">Delhi</a>
+            <a href="#">Surat</a>
+            <a href="#">Chennai</a>
+					</div>
+				</div>
+                <input type="text" placeholder="Search doctors, clinics,hospitals,etc." id="search-input">
+				<button type="submit" id="search-input" onclick="initMap()">Search</button>
+			</form>
+		</div>
+	</div>
+  <div id="map"></div>
+
+<script>
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
+const dropdownBtn = document.getElementById("dropdown-btn");
+const dropdownContent = document.querySelector(".dropdown-content");
+
+// Event listener for search button
+searchBtn.addEventListener("click", (event) => {
+	event.preventDefault();
+	const searchText = searchInput.value;
+	// TODO: Implement search functionality with searchText
+	console.log(`Search text: ${searchText}`);
+});
+
+// Event listener for dropdown button
+dropdownBtn.addEventListener("click", () => {
+	dropdownContent.classList.toggle("show");
+});
+
+// Close the dropdown menu if the user clicks outside of it
+window.addEventListener("click", (event) => {
+	if (!event.target.matches(".dropbtn")) {
+		const dropdowns = document.getElementsByClassName("dropdown-content");
+		for (let i = 0; i < dropdowns.length; i++) {
+			const dropdown = dropdowns[i];
+			if (dropdown.classList.contains("show")) {
+				dropdown.classList.remove("show");
+			}
+		}
+	}
+});
+
+
+</script>
+<footer class="mainfooter" role="contentinfo"id="about">  
+    <div class="footer-middle">  
+    <div class="container">  
+      <div class="row">  
+        <div class="col-md-3 col-sm-6">  
+          <div class="footer-pad">  
+            <h4><u><b>About Us</b></u></h4>  
+            <ul class="list-unstyled">  
+              <li> <a href="#about"> </a> </li>  
+              <li> <a href="#contact"> Contact Directory </a></li>  
+              <li> <a href="#">Forms</a></li>  
+              <li> <a href="#">News and Updates</a></li>  
+              <li> <a href="#">FAQs</a></li>  
+            </ul>  
+          </div>  
+        </div>  
+      <div class="col-md-3 col-sm-6">  
+          <div class="footer-pad">  
+            <h4><u><b>Contact Us</b></u></h4>  
+            <ul class="list-unstyled">  
+              <li> <a href="#"> Payment </a> </li>  
+              <li> <a href="#"> Appointment </a> </li>  
+              <li> <a href="#"> Patient Care </a> </li>  
+              
+            </ul>  
+          </div>  
+        </div>  
+          <div class="col-md-3">  
+              <h4> Follow Us </h4>  
+              <ul class="social-network social-circle">  
+                <li> <a href="#" class="icoFacebook" title="Facebook"> <i class="fa fa-facebook"> <img src="images/socials/facebook.png" width="21px"></i> </a> </li>  
+                <li> <a href="#" class="icoLinkedin" title="Linkedin"> <i class="fa fa-linkedin"> <img src="images/socials/linkedin.png" width="19px"></i> </a> </li>  
+                <li> <a href="#"> <i class="fa fa-youtube" aria-hidden="true"><img src="images/socials/youtube.png" width="19px"> </i> </a> </li>  
+              </ul>               
+      </div>  
+      </div>  
+      <div class="row">  
+      <div class="col-md-12 copy">  
+      <p class="text-center"> © Copyright 2021 - Medcare.  All rights reserved. </p>  
+      </div>  
+      </div>  
+    </div>  
+    </div>  
+  </footer>
+  <style>  
+    h2 {  
+    padding: 25px 0;  
+    text-align: center;  
+    color: #fff;  
+    background: #7c8490;  
+    }  
+    footer {  
+     background: #1caa81;  
+      color: white;  
+      margin-top:100px;  
+    }  
+    footer a {  
+      color: #fff;  
+      font-size: 14px;  
+      transition-duration: 0.2s;  
+    }  
+    footer a:hover {  
+      color: #FA944B;  
+      text-decoration: none;  
+    }  
+    .copy {  
+      font-size: 12px;  
+      padding: 10px;  
+      border-top: 1px solid #FFFFFF;  
+    }  
+    .footer-middle {  
+      padding-top: 2em;  
+      color: white;  
+    }  
+    ul.social-network {  
+      list-style: none;  
+      display: inline;  
+      margin-left: 0 !important;  
+      padding: 0;  
+    }  
+    ul.social-network li {  
+      display: inline;  
+      margin: 0 5px;  
+    }  
+      
+    .social-network a.icoFacebook:hover {  
+      background-color: #3B5998;  
+    }  
+    .social-network a.icoLinkedin:hover {  
+      background-color: #007bb7;  
+    }  
+    .social-network a.icoFacebook:hover i  
+    {  
+      color: #fff;  
+    }  
+    .social-network a.icoLinkedin:hover i {  
+      color: #fff;  
+    }  
+    .social-network a.socialIcon:hover {  
+      color: #44BCDD;  
+    }  
+    .socialHoverClass {  
+      color: #44BCDD;  
+    }  
+    .social-circle li a {  
+      display: inline-block;  
+      position: relative;  
+      margin: 0 auto 0 auto;  
+      -moz-border-radius: 50%;  
+      -webkit-border-radius: 50%;  
+      border-radius: 50%;  
+      text-align: center;  
+      width: 30px;  
+      height: 30px;  
+      font-size: 15px;  
+    }  
+    .social-circle li i {  
+      margin: 0;  
+      line-height: 30px;  
+      text-align: center;  
+    }  
+    .social-circle li a:hover i  
+    {  
+      -moz-transform: rotate(360deg);  
+      -webkit-transform: rotate(360deg);  
+      -ms--transform: rotate(360deg);  
+      transform: rotate(360deg);  
+      -webkit-transition: all 0.2s;  
+      -moz-transition: all 0.2s;  
+      -o-transition: all 0.2s;  
+      -ms-transition: all 0.2s;  
+      transition: all 0.2s;  
+    }  
+    .triggeredHover {  
+      -moz-transform: rotate(360deg);  
+      -webkit-transform: rotate(360deg);  
+      -ms--transform: rotate(360deg);  
+      transform: rotate(360deg);  
+      -webkit-transition: all 0.2s;  
+      -moz-transition: all 0.2s;  
+      -o-transition: all 0.2s;  
+      -ms-transition: all 0.2s;  
+      transition: all 0.2s;  
+    }  
+    .social-circle i {  
+      color: #595959;  
+      -webkit-transition: all 0.8s;  
+      -moz-transition: all 0.8s;  
+      -o-transition: all 0.8s;  
+      -ms-transition: all 0.8s;  
+      transition: all 0.8s;  
+    }  
+    .social-network a {  
+      background-color: #F9F9F9;  
+    }  
+    .social-network a:hover {  
+    background: #ff304d;  
+    }  
+    </style> 
+  <script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/scrollspy.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="pod.js"></script>
+</body>
+</html>
